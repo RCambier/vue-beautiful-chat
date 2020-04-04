@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="launcher">
     <div v-if="showLauncher" class="sc-launcher" :class="{opened: isOpen}" @click.prevent="isOpen ? close() : openAndFocus()" :style="{backgroundColor: colors.launcher.bg}">
       <div v-if="newMessagesCount > 0 && !isOpen" class="sc-new-messsages-count">
         {{newMessagesCount}}
@@ -224,6 +224,9 @@ export default {
 }
 </script>
 <style scoped>
+.launcher{
+  height: 100%;
+}
 .sc-launcher {
   width: 60px;
   height: 60px;

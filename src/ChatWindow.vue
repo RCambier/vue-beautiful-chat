@@ -162,10 +162,9 @@ export default {
 </script>
 <style scoped>
 .sc-chat-window {
-  width: 370px;
-  height: calc(100% - 120px);
-  max-height: 590px;
-  position: fixed;
+  width: 100%;
+  height: 100%;
+  position: static;
   right: 25px;
   bottom: 100px;
   box-sizing: border-box;

@@ -109,7 +109,8 @@ export default {
 </script>
 <style lang="scss">
 .sc-message {
-  width: 300px;
+  width: 100%;
+    padding: 0px 20px;
   margin: auto;
   padding-bottom: 10px;
   display: flex;

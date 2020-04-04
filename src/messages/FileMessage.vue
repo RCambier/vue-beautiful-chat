@@ -30,6 +30,7 @@ export default {
 
 <style scoped>
 .sc-message--file {
+  max-width: min(300px, 50%);
   border-radius: 6px;
   font-weight: 300;
   font-size: 14px;
@@ -43,19 +44,21 @@ export default {
 }
 
 .sc-message--file-icon {
+  width: 100%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
   margin-bottom: 0px;
 }
 
 .sc-image {
+  border-radius: 6px;
   max-width: 100%;
   min-width: 100%;
 }
 
 .sc-message--file-text {
+  text-align: right;
   padding: 17px 20px;
   border-radius: 6px;
   font-weight: 300;

@@ -164,7 +164,7 @@ export default {
 .sc-chat-window {
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: static;
   right: 25px;
   bottom: 100px;
   box-sizing: border-box;

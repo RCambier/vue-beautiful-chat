@@ -283,7 +283,7 @@ export default {
 }
 
 .sc-user-input--text {
-  width: 100%;
+  width: calc(100% - 120px);
   resize: none;
   border: none;
   outline: none;

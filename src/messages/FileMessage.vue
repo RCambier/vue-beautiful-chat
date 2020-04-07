@@ -55,8 +55,8 @@ export default {
 }
 
 .sc-message--file-text {
+  padding: 0px 17px;
   text-align: right;
-  padding: 17px 20px;
   border-radius: 6px;
   font-weight: 300;
   font-size: 14px;

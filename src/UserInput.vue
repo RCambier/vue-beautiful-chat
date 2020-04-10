@@ -175,7 +175,6 @@ export default {
       //   this._editFinish()
       //   event.preventDefault()
       // }
-
       this.$emit('onType')
     },
     focusUserInput() {
@@ -187,7 +186,7 @@ export default {
       this.onSubmit({ author: 'me', type: 'text', data: { text: suggestion } })
     },
     _submitText(event) {
-      const text = this.$refs.userInput.textContent
+      const text = this.$refs.userInput.innerText
       const file = this.file
       if (file) {
         this._submitTextWhenFile(event, text, file)
@@ -283,6 +282,11 @@ export default {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sc-message--text,
+.sc-message--file-text {
+  white-space: pre-wrap;
 }
 
 .sc-user-input--text {

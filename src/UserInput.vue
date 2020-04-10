@@ -160,18 +160,21 @@ export default {
       this.inputActive = onoff
     },
     handleKey(event) {
-      if (event.keyCode === 13 && !event.shiftKey) {
-        if (!this.isEditing) {
-          this._submitText(event)
-        } else {
-          this._editText(event)
-        }
-        this._editFinish()
-        event.preventDefault()
-      } else if (event.keyCode === 27) {
-        this._editFinish()
-        event.preventDefault()
-      }
+      // I do not want the enter key to send the messages.
+      // I comment all out since I do not use the editing feature.
+
+      // if (event.keyCode === 13 && !event.shiftKey) {
+      //   if (!this.isEditing) {
+      //     this._submitText(event)
+      //   } else {
+      //     this._editText(event)
+      //   }
+      //   this._editFinish()
+      //   event.preventDefault()
+      // } else if (event.keyCode === 27) {
+      //   this._editFinish()
+      //   event.preventDefault()
+      // }
 
       this.$emit('onType')
     },

@@ -8,18 +8,6 @@
         system: message.type === 'system'
       }"
     >
-      <slot name="user-avatar" :message="message" :user="user">
-        <div
-          v-if="message.type !== 'system'"
-          :title="authorName"
-          class="sc-message--avatar"
-          :style="{
-            backgroundImage: `url(${chatImageUrl})`
-          }"
-          v-tooltip="authorName"
-        ></div>
-      </slot>
-
       <TextMessage
         v-if="message.type === 'text'"
         :message="message"

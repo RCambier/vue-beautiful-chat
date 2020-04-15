@@ -27,6 +27,7 @@
       class="sc-user-input"
       :class="{active: inputActive}"
       :style="{background: colors.userInput.bg}"
+      @submit.prevent
     >
       <div
         role="button"
@@ -175,7 +176,6 @@ export default {
       //   this._editFinish()
       //   event.preventDefault()
       // }
-      event.preventDefault()
       this.$emit('onType')
     },
     focusUserInput() {

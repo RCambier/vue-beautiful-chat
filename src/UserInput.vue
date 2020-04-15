@@ -175,6 +175,7 @@ export default {
       //   this._editFinish()
       //   event.preventDefault()
       // }
+      event.preventDefault()
       this.$emit('onType')
     },
     focusUserInput() {

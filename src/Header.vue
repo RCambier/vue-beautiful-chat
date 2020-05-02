@@ -12,7 +12,12 @@
       <div class="sc-header--title enabled" @click="clickHeader">{{title}}</div>
     </slot>
 
-    <b-popover target="chat-header" :show.sync="tutorialChatOne" placement="bottom">
+    <b-popover
+      target="chat-header"
+      :show.sync="tutorialChatOne"
+      placement="bottom"
+      triggers="manual"
+    >
       <template v-slot:title>Le docteur avec qui vous discutez.</template>
       Cliquez sur son nom afin d'accéder à la fiche le décrivant.
     </b-popover>

@@ -1,5 +1,5 @@
 <template>
-  <div id="chat-user-input">
+  <div>
     <Suggestions
       :suggestions="suggestions"
       v-on:sendSuggestion="_submitSuggestion"
@@ -24,6 +24,7 @@
       </span>
     </div>
     <form
+      id="chat-user-input"
       class="sc-user-input"
       :class="{active: inputActive}"
       :style="{background: colors.userInput.bg}"

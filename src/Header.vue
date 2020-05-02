@@ -1,5 +1,9 @@
 <template>
-  <div class="sc-header" :style="{background: colors.header.bg, color: colors.header.text}">
+  <div
+    id="chat-header"
+    class="sc-header"
+    :style="{background: colors.header.bg, color: colors.header.text}"
+  >
     <div v-if="showCloseButton" class="sc-header--close-button" @click="onClose">
       <img :src="icons.close.img" :alt="icons.close.name" />
     </div>

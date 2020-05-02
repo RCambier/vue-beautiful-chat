@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="chat-user-input">
     <Suggestions
       :suggestions="suggestions"
       v-on:sendSuggestion="_submitSuggestion"

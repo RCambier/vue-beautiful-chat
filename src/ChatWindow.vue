@@ -6,6 +6,7 @@
       :imageUrl="titleImageUrl"
       :onClose="onClose"
       :colors="colors"
+      :tutorial_chat_one="tutorial_chat_one"
       @clickHeader="$emit('clickHeader')"
     >
       <template>
@@ -53,6 +54,7 @@
       @onType="$emit('onType')"
       @edit="$emit('edit', $event)"
       :colors="colors"
+      :tutorial_chat_two="tutorial_chat_two"
     />
   </div>
 </template>
@@ -132,6 +134,14 @@ export default {
       required: true
     },
     disableUserListToggle: {
+      type: Boolean,
+      default: false
+    },
+    tutorial_chat_one: {
+      type: Boolean,
+      default: false
+    },
+    tutorial_chat_two: {
       type: Boolean,
       default: false
     }

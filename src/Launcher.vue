@@ -37,6 +37,8 @@
       @edit="$emit('edit', $event)"
       @remove="$emit('remove', $event)"
       @clickHeader="$emit('clickHeader')"
+      :tutorial_chat_one="tutorial_chat_one"
+      :tutorial_chat_two="tutorial_chat_two"
     >
       <template v-slot:header>
         <slot name="header"></slot>
@@ -202,6 +204,14 @@ export default {
       default: () => false
     },
     disableUserListToggle: {
+      type: Boolean,
+      default: false
+    },
+    tutorial_chat_one: {
+      type: Boolean,
+      default: false
+    },
+    tutorial_chat_two: {
       type: Boolean,
       default: false
     }

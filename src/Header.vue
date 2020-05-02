@@ -11,6 +11,11 @@
       <!-- <img class="sc-header--img" :src="imageUrl" alt v-if="imageUrl" /> -->
       <div class="sc-header--title enabled" @click="clickHeader">{{title}}</div>
     </slot>
+
+    <b-popover target="chat-header" :show="tutorial_chat_one" placement="bottom">
+      <template v-slot:title>Le docteur avec qui vous discutez.</template>
+      Cliquez sur son nom afin d'accéder à la fiche le décrivant.
+    </b-popover>
   </div>
 </template>
 <script>
@@ -49,6 +54,10 @@ export default {
       default: false
     },
     showCloseButton: {
+      type: Boolean,
+      default: false
+    },
+    tutorial_chat_one: {
       type: Boolean,
       default: false
     }

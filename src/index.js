@@ -1,10 +1,5 @@
 import Launcher from './Launcher.vue'
 import VTooltip from 'v-tooltip'
-import Vue from 'vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const defaultComponentName = 'beautiful-chat'
 
@@ -34,10 +29,6 @@ const Plugin = {
      */
     Vue.component(this.componentName, Launcher)
     Vue.use(VTooltip)
-    // Install BootstrapVue
-    Vue.use(BootstrapVue)
-    // Optionally install the BootstrapVue icon components plugin
-    Vue.use(IconsPlugin)
   }
 }
 

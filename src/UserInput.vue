@@ -152,7 +152,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: 'Write something...'
+      default: 'Écrivez quelque chose...'
     },
     colors: {
       type: Object,

@@ -30,7 +30,7 @@
       :style="{background: colors.userInput.bg}"
       @submit.prevent
     >
-      <b-popover target="chat-user-input" :show="tutorial_chat_two" placement="top">
+      <b-popover target="chat-user-input" :show="tutorialChatTwo" placement="top">
         <template v-slot:title>Posez votre première question !</template>
         Posez votre question au docteur.
         N'oubliez pas de préciser votre âge, votre sexe et votre condition médicale (maladies, médicaments, ...).
@@ -153,7 +153,7 @@ export default {
       type: Object,
       required: true
     },
-    tutorial_chat_two: {
+    tutorialChatTwo: {
       type: Boolean,
       default: false
     }

@@ -12,7 +12,7 @@
       <div class="sc-header--title enabled" @click="clickHeader">{{title}}</div>
     </slot>
 
-    <b-popover target="chat-header" :show="tutorial_chat_one" placement="bottom">
+    <b-popover target="chat-header" :show="tutorialChatOne" placement="bottom">
       <template v-slot:title>Le docteur avec qui vous discutez.</template>
       Cliquez sur son nom afin d'accéder à la fiche le décrivant.
     </b-popover>
@@ -57,7 +57,7 @@ export default {
       type: Boolean,
       default: false
     },
-    tutorial_chat_one: {
+    tutorialChatOne: {
       type: Boolean,
       default: false
     }

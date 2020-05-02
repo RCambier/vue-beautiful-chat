@@ -37,8 +37,8 @@
       @edit="$emit('edit', $event)"
       @remove="$emit('remove', $event)"
       @clickHeader="$emit('clickHeader')"
-      :tutorial_chat_one="tutorial_chat_one"
-      :tutorial_chat_two="tutorial_chat_two"
+      :tutorialChatOne="tutorialChatOne"
+      :tutorialChatTwo="tutorialChatTwo"
     >
       <template v-slot:header>
         <slot name="header"></slot>
@@ -207,11 +207,11 @@ export default {
       type: Boolean,
       default: false
     },
-    tutorial_chat_one: {
+    tutorialChatOne: {
       type: Boolean,
       default: false
     },
-    tutorial_chat_two: {
+    tutorialChatTwo: {
       type: Boolean,
       default: false
     }

@@ -6,7 +6,7 @@
       :imageUrl="titleImageUrl"
       :onClose="onClose"
       :colors="colors"
-      :tutorial_chat_one="tutorial_chat_one"
+      :tutorialChatOne="tutorialChatOne"
       @clickHeader="$emit('clickHeader')"
     >
       <template>
@@ -54,7 +54,7 @@
       @onType="$emit('onType')"
       @edit="$emit('edit', $event)"
       :colors="colors"
-      :tutorial_chat_two="tutorial_chat_two"
+      :tutorialChatTwo="tutorialChatTwo"
     />
   </div>
 </template>
@@ -137,11 +137,11 @@ export default {
       type: Boolean,
       default: false
     },
-    tutorial_chat_one: {
+    tutorialChatOne: {
       type: Boolean,
       default: false
     },
-    tutorial_chat_two: {
+    tutorialChatTwo: {
       type: Boolean,
       default: false
     }

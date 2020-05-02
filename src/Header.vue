@@ -5,12 +5,7 @@
     </div>
     <slot>
       <!-- <img class="sc-header--img" :src="imageUrl" alt v-if="imageUrl" /> -->
-      <div
-        v-if="!disableUserListToggle"
-        class="sc-header--title enabled"
-        @click="toggleUserList"
-      >{{title}}</div>
-      <div v-else class="sc-header--title">{{title}}</div>
+      <div class="sc-header--title enabled" @click="clickHeader">{{title}}</div>
     </slot>
   </div>
 </template>
@@ -55,9 +50,8 @@ export default {
     }
   },
   methods: {
-    toggleUserList() {
-      this.inUserList = !this.inUserList
-      this.$emit('userList', this.inUserList)
+    clickHeader() {
+      this.$emit('clickHeader')
     }
   },
   data() {
@@ -118,9 +112,10 @@ export default {
 }
 
 .sc-header--close-button img {
-  width: 100%;
-  height: 100%;
-  padding: 13px;
+  margin-left: 10px;
+  margin-top: 6px;
+  width: 20px;
+  height: 30px;
   box-sizing: border-box;
 }
 

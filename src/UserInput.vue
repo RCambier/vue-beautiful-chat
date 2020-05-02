@@ -32,10 +32,10 @@
     >
       <b-popover target="chat-user-input" :show="tutorialChatTwo" placement="top">
         <template v-slot:title>Posez votre première question !</template>
-        Posez votre question au docteur.
-        N'oubliez pas de préciser votre âge, votre sexe et votre condition médicale (maladies, médicaments, ...).
-        Vous devriez obtenir une réponse dans les 24h!
-        Vous serez notifié par email si une réponse arrive.
+        N'oubliez pas de préciser votre âge, votre sexe et votre condition médicale (maladies, prises de médicaments, ...).
+        <br />
+        <br />Vous devriez obtenir une réponse dans les 24h.
+        <br />Vous serez notifié par email quand une réponse arrive.
       </b-popover>
       <div
         role="button"

@@ -30,7 +30,7 @@
       :style="{background: colors.userInput.bg}"
       @submit.prevent
     >
-      <b-popover target="chat-user-input" :show="tutorialChatTwo" placement="top">
+      <b-popover target="chat-user-input" :show.sync="tutorialChatTwo" placement="top">
         <template v-slot:title>Posez votre première question !</template>
         N'oubliez pas de préciser votre âge, votre sexe et votre condition médicale (maladies, prises de médicaments, ...).
         <br />

@@ -30,18 +30,15 @@
       :style="{background: colors.userInput.bg}"
       @submit.prevent
     >
-      <b-popover
-        target="chat-user-input"
-        :show.sync="tutorialChatTwo"
-        placement="top"
-        triggers="manual"
-      >
-        <template v-slot:title>Posez votre première question !</template>
-        N'oubliez pas de préciser votre âge, votre sexe et votre condition médicale (maladies, prises de médicaments, ...).
-        <br />
-        <br />Vous devriez obtenir une réponse dans les 24h.
-        <br />Vous serez notifié par email quand une réponse arrive.
-      </b-popover>
+      <div v-if="tutorialChatTwo">
+        <b-popover target="chat-user-input" placement="top" triggers="focus hover">
+          <template v-slot:title>Posez votre première question !</template>
+          N'oubliez pas de préciser votre âge, votre sexe et votre condition médicale (maladies, prises de médicaments, ...).
+          <br />
+          <br />Vous devriez obtenir une réponse dans les 24h.
+          <br />Vous serez notifié par email quand une réponse arrive.
+        </b-popover>
+      </div>
       <div
         role="button"
         tabindex="0"

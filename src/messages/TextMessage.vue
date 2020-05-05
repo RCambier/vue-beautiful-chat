@@ -62,7 +62,8 @@ export default {
   },
   computed: {
     messageText() {
-      const escaped = escapeGoat.escape(this.message.data.text)
+      var escaped = escapeGoat.escape(this.message.data.text)
+      escaped = escaped.replace(/^\s*/, '').replace(/\s*$/, '')
 
       return Autolinker.link(this.messageStyling ? fmt(escaped) : escaped, {
         className: 'chatLink',

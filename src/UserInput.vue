@@ -30,8 +30,9 @@
       :style="{background: colors.userInput.bg}"
       @submit.prevent
     >
+      <!-- popover(UserInput): {{tutorialChatTwo}} -->
       <div v-if="tutorialChatTwo">
-        <b-popover target="chat-user-input" placement="top" triggers="focus hover">
+        <b-popover target="chat-user-input" placement="top" triggers="hover focus">
           <template v-slot:title>Posez votre première question !</template>
           N'oubliez pas de préciser votre âge, votre sexe et votre condition médicale (maladies, prises de médicaments, ...).
           <br />
@@ -297,11 +298,6 @@ export default {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.sc-message--text,
-.sc-message--file-text {
-  white-space: pre-wrap;
 }
 
 .sc-user-input--text {

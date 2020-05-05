@@ -8,43 +8,49 @@
         system: message.type === 'system'
       }"
     >
-      <TextMessage
-        v-if="message.type === 'text'"
-        :message="message"
-        :messageColors="determineMessageColors()"
-        :messageStyling="messageStyling"
-        @remove="$emit('remove')"
-      >
-        <template v-slot:default="scopedProps">
-          <slot
-            name="text-message-body"
-            :message="scopedProps.message"
-            :messageText="scopedProps.messageText"
-            :messageColors="scopedProps.messageColors"
-            :me="scopedProps.me"
-          ></slot>
-        </template>
-        <template v-slot:text-message-toolbox="scopedProps">
-          <slot name="text-message-toolbox" :message="scopedProps.message" :me="scopedProps.me"></slot>
-        </template>
-      </TextMessage>
-      <EmojiMessage v-else-if="message.type === 'emoji'" :data="message.data" />
-      <FileMessage
-        v-else-if="message.type === 'file'"
-        :data="message.data"
-        :messageColors="determineMessageColors()"
-      />
-      <TypingMessage
-        v-else-if="message.type === 'typing'"
-        :messageColors="determineMessageColors()"
-      />
-      <SystemMessage
-        v-else-if="message.type === 'system'"
-        :data="message.data"
-        :messageColors="determineMessageColors()"
-      >
-        <slot name="system-message-body" :message="message.data"></slot>
-      </SystemMessage>
+      <div class="sc-message--vertical">
+        <div class="sc-message--timestamp">{{messageTimestampFormat(message.created_at)}}</div>
+
+        <dev class="sc-message--component">
+          <TextMessage
+            v-if="message.type === 'text'"
+            :message="message"
+            :messageColors="determineMessageColors()"
+            :messageStyling="messageStyling"
+            @remove="$emit('remove')"
+          >
+            <template v-slot:default="scopedProps">
+              <slot
+                name="text-message-body"
+                :message="scopedProps.message"
+                :messageText="scopedProps.messageText"
+                :messageColors="scopedProps.messageColors"
+                :me="scopedProps.me"
+              ></slot>
+            </template>
+            <template v-slot:text-message-toolbox="scopedProps">
+              <slot name="text-message-toolbox" :message="scopedProps.message" :me="scopedProps.me"></slot>
+            </template>
+          </TextMessage>
+          <EmojiMessage v-else-if="message.type === 'emoji'" :data="message.data" />
+          <FileMessage
+            v-else-if="message.type === 'file'"
+            :data="message.data"
+            :messageColors="determineMessageColors()"
+          />
+          <TypingMessage
+            v-else-if="message.type === 'typing'"
+            :messageColors="determineMessageColors()"
+          />
+          <SystemMessage
+            v-else-if="message.type === 'system'"
+            :data="message.data"
+            :messageColors="determineMessageColors()"
+          >
+            <slot name="system-message-body" :message="message.data"></slot>
+          </SystemMessage>
+        </dev>
+      </div>
     </div>
   </div>
 </template>
@@ -57,6 +63,7 @@ import TypingMessage from './messages/TypingMessage.vue'
 import SystemMessage from './messages/SystemMessage.vue'
 import chatIcon from './assets/chat-icon.svg'
 import store from './store/'
+import moment from 'moment'
 
 export default {
   data() {
@@ -88,6 +95,13 @@ export default {
     }
   },
   methods: {
+    messageTimestampFormat(timestamp) {
+      if (timestamp) {
+        return moment(timestamp.toDate()).calendar()
+      } else {
+        return null
+      }
+    },
     sentColorsStyle() {
       return {
         color: this.colors.sentMessage.text,
@@ -117,6 +131,28 @@ export default {
 }
 </script>
 <style lang="scss">
+.sc-message--vertical {
+  display: flex;
+  flex-direction: column !important;
+  max-width: calc(100% - 120px);
+}
+
+.sc-message--content.sent .sc-message--timestamp {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.sc-message--timestamp {
+  color: #b1acac;
+  font-size: small;
+}
+.sc-message--content.sent .sc-message--component {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .sc-message {
   width: 100%;
   padding: 0px 20px;
@@ -169,15 +205,19 @@ export default {
 .sc-message--text {
   padding: 5px 20px;
   border-radius: 6px;
-  font-weight: 300;
+  font-weight: 400 !important;
   font-size: 14px;
   line-height: 1.4;
   position: relative;
   -webkit-font-smoothing: subpixel-antialiased;
-  .sc-message--text-body {
-    .sc-message--text-content {
-      white-space: pre-wrap;
-    }
+  .sc-message--text-content {
+    -webkit-font-smoothing: antialiased;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-top: 0px;
+    white-space: pre-wrap;
   }
   &:hover .sc-message--toolbox {
     left: -20px;
@@ -209,7 +249,7 @@ export default {
 .sc-message--content.sent .sc-message--text {
   color: white;
   background-color: #4e8cff;
-  max-width: calc(100% - 120px);
+
   word-wrap: break-word;
 }
 

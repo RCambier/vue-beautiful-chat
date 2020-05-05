@@ -3,14 +3,15 @@
     <div class="sc-message--file-icon">
       <img :src="data.file.url" class="sc-image" />
     </div>
-    <div class="sc-message--file-text" v-if="data.text" :style="messageColors">
-      {{data.text}}
+    <div class="sc-message--file-text" v-if="messageText" :style="messageColors">
+      {{messageText}}
       <p v-if="data.meta" class="sc-message--meta" :style="messageColors">{{data.meta}}</p>
     </div>
   </div>
 </template>
 
 <script>
+import escapeGoat from 'escape-goat'
 export default {
   props: {
     data: {
@@ -20,6 +21,17 @@ export default {
     messageColors: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    messageText() {
+      if (this.data.text) {
+        var escaped = escapeGoat.escape(this.data.text)
+        escaped = escaped.replace(/^\s*/, '').replace(/\s*$/, '')
+        return escaped
+      } else {
+        return null
+      }
     }
   }
 }
@@ -58,11 +70,13 @@ export default {
   padding: 0px 17px;
   text-align: right;
   border-radius: 6px;
-  font-weight: 300;
-  font-size: 14px;
+  white-space: pre-wrap;
+  -webkit-font-smoothing: antialiased;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
   line-height: 1.4;
   white-space: pre-wrap;
-  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .sc-message--file-name {

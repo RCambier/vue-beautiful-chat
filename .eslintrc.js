@@ -1,18 +1,17 @@
 module.exports = {
   root: true,
-  extends: 'standard',
-  plugins: [
-    'html'
+  env: {
+    node: true
+  },
+  'extends': [
+    'plugin:vue/essential'
   ],
-  'rules': {
-    'no-multi-spaces': [
-      'error', {
-        exceptions: {
-          'ImportDeclaration': true
-        }
-      }
-    ],
-    'arrow-parens': 0,
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+  },
+  parserOptions: {
+    parser: 'babel-eslint'
   }
 }

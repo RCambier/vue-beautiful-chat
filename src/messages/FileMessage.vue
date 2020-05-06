@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .sc-message--file {
-  max-width: min(300px, 50%);
+  max-width: min(300px, 70%);
   border-radius: 6px;
   font-weight: 300;
   font-size: 14px;

@@ -134,7 +134,7 @@ export default {
 .sc-message--vertical {
   display: flex;
   flex-direction: column !important;
-  max-width: calc(100% - 120px);
+  width: 100%;
 }
 
 .sc-message--content.sent .sc-message--timestamp {
@@ -151,6 +151,8 @@ export default {
   flex-direction: row;
   display: flex;
   justify-content: flex-end;
+  margin-left: 40px;
+  // max-width: calc(100% - 120px);
 }
 
 .sc-message {

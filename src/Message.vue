@@ -11,7 +11,7 @@
       <div class="sc-message--vertical">
         <div class="sc-message--timestamp">{{messageTimestampFormat(message.created_at)}}</div>
 
-        <dev class="sc-message--component">
+        <div class="sc-message--component">
           <TextMessage
             v-if="message.type === 'text'"
             :message="message"
@@ -49,7 +49,7 @@
           >
             <slot name="system-message-body" :message="message.data"></slot>
           </SystemMessage>
-        </dev>
+        </div>
       </div>
     </div>
   </div>
@@ -152,6 +152,13 @@ export default {
   display: flex;
   justify-content: flex-end;
   margin-left: 40px;
+  // max-width: calc(100% - 120px);
+}
+
+.sc-message--content.received .sc-message--component {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
   // max-width: calc(100% - 120px);
 }
 

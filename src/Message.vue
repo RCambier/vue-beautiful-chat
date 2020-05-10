@@ -8,6 +8,13 @@
         system: message.type === 'system'
       }"
     >
+      <!-- <avatar
+        v-if="message.author !== 'me' && message.type !== 'system'"
+        class="sc-message--avatar"
+        :username="(avatar? avatar.name: '') || ''"
+        :size="35"
+        :src="avatar? avatar.profile_picture? avatar.profile_picture.file_url: '' :''"
+      ></avatar>-->
       <div class="sc-message--vertical">
         <div class="sc-message--timestamp">{{messageTimestampFormat(message.created_at)}}</div>
 
@@ -64,6 +71,7 @@ import SystemMessage from './messages/SystemMessage.vue'
 import chatIcon from './assets/chat-icon.svg'
 import store from './store/'
 import moment from 'moment'
+import Avatar from 'vue-avatar'
 
 export default {
   data() {
@@ -74,7 +82,8 @@ export default {
     FileMessage,
     EmojiMessage,
     TypingMessage,
-    SystemMessage
+    SystemMessage,
+    Avatar
   },
   props: {
     message: {
@@ -92,6 +101,10 @@ export default {
     user: {
       type: Object,
       required: true
+    },
+    avatar: {
+      type: Object,
+      default: () => {}
     }
   },
   methods: {

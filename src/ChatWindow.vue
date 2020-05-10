@@ -8,6 +8,7 @@
       :colors="colors"
       :tutorialChatOne="tutorialChatOne"
       @clickHeader="$emit('clickHeader')"
+      :avatar="avatar"
     >
       <template>
         <slot name="header"></slot>
@@ -16,6 +17,7 @@
     <UserList v-if="showUserList" :participants="participants" />
     <MessageList
       v-if="!showUserList"
+      :avatar="avatar"
       :messages="messages"
       :participants="participants"
       :showTypingIndicator="showTypingIndicator"
@@ -144,6 +146,10 @@ export default {
     tutorialChatTwo: {
       type: Boolean,
       default: false
+    },
+    avatar: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {

@@ -39,6 +39,7 @@
       @clickHeader="$emit('clickHeader')"
       :tutorialChatOne="tutorialChatOne"
       :tutorialChatTwo="tutorialChatTwo"
+      :avatar="avatar"
     >
       <template v-slot:header>
         <slot name="header"></slot>
@@ -214,6 +215,10 @@ export default {
     tutorialChatTwo: {
       type: Boolean,
       default: false
+    },
+    avatar: {
+      type: Object,
+      default: () => {}
     }
   },
   methods: {

@@ -64,6 +64,7 @@
     "eslint-plugin-node": "^8.0.1",
     "imagemin": "^6.1.0",
     "msgdown": "^1.0.2",
-    "v-tooltip": "^2.0.1"
+    "v-tooltip": "^2.0.1",
+    "vue-avatar": "^2.2.0"
   }
 }

@@ -289,6 +289,7 @@ export default {
 
 <style>
 .sc-user-input {
+  z-index: 10000;
   min-height: 55px;
   margin: 0px;
   position: relative;

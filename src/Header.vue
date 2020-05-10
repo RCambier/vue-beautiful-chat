@@ -8,8 +8,15 @@
       <img :src="icons.close.img" :alt="icons.close.name" />
     </div>
     <slot>
-      <!-- <img class="sc-header--img" :src="imageUrl" alt v-if="imageUrl" /> -->
-      <div class="sc-header--title enabled" @click="clickHeader">{{title}}</div>
+      <div class="sc-header--title-wrapper enabled" @click.stop="clickHeader">
+        <avatar
+          class="sc-message--avatar"
+          :username="(avatar? avatar.name: '') || ''"
+          :size="35"
+          :src="avatar? avatar.profile_picture? avatar.profile_picture.file_url: '' :''"
+        ></avatar>
+        <div class="sc-header--title">{{title}}</div>
+      </div>
     </slot>
 
     <b-popover
@@ -25,8 +32,12 @@
 </template>
 <script>
 import CloseIcon from './assets/back_button.svg'
+import Avatar from 'vue-avatar'
 
 export default {
+  components: {
+    Avatar
+  },
   props: {
     icons: {
       type: Object,
@@ -65,6 +76,10 @@ export default {
     tutorialChatOne: {
       type: Boolean,
       default: false
+    },
+    avatar: {
+      type: Object,
+      default: () => {}
     }
   },
   methods: {
@@ -97,20 +112,31 @@ export default {
   padding: 10px;
 }
 
-.sc-header--title {
+.sc-header--avatar {
   align-self: center;
-  padding: 10px;
-  flex: 1;
-  user-select: none;
-  font-size: 20px;
 }
 
-.sc-header--title.enabled {
+.sc-header--title-wrapper {
+  flex: 1;
+  display: flex;
+  padding: 10px;
+  /* padding-left: 20px; */
+  user-select: none;
+  align-self: center;
+}
+
+.sc-header--title {
+  font-size: 20px;
+  padding-left: 10px;
+  align-self: center;
+}
+
+.sc-header--title-wrapper.enabled {
   cursor: pointer;
   border-radius: 5px;
 }
 
-.sc-header--title.enabled:hover {
+.sc-header--title-wrapper.enabled:hover {
   box-shadow: 0px 2px 5px rgba(0.2, 0.2, 0.5, 0.1);
 }
 
@@ -122,7 +148,7 @@ export default {
   box-sizing: border-box;
   cursor: pointer;
   border-radius: 5px;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 .sc-header--close-button:hover {

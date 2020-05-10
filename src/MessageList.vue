@@ -12,6 +12,7 @@
       :key="idx"
       :colors="colors"
       :messageStyling="messageStyling"
+      :avatar="avatar"
       @remove="$emit('remove', message)"
     >
       <template v-slot:user-avatar="scopedProps">
@@ -71,6 +72,10 @@ export default {
     messageStyling: {
       type: Boolean,
       required: true
+    },
+    avatar: {
+      type: Object,
+      default: () => {}
     }
   },
   methods: {
